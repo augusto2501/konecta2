@@ -1,11 +1,11 @@
 
 ## Instalación de la aplicación
 
-** git clone <https://github.com/augusto2501/konecta2.git> konecta
-** cd konecta
-** composer install
-** cp .env.example .env
-** nano .env
+-- git clone <https://github.com/augusto2501/konecta2.git> konecta
+-- cd konecta
+-- composer install
+-- cp .env.example .env
+-- nano .env
 
 
 Cambie los parametros DB_DATABASE y colóquele el nombre que utilizara cuando vaya a crear la base de
