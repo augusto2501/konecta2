@@ -1,5 +1,12 @@
 @extends('layouts.principal')
 @section('content')
+
+    @if (sizeof($sum)===0)
+        <div class="container mt-4">
+            <h1>No hay ventas</h1>
+        </div>
+
+    @else
     <div class="container">
         <h1>Reporte</h1>
         <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -27,4 +34,5 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection

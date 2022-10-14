@@ -94,8 +94,6 @@ class ProductController extends Controller
             ->orderBy('total', 'desc')
             ->get();
 
-        // dd($sum);
-
         return view('products.report')->with(['max' => $max, 'prods' => $prods, 'sum' => $sum]);
     }
 }
