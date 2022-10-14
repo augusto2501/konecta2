@@ -69,8 +69,15 @@ class ProductController extends Controller
     //-------------------------Eliminar un producto-------------------------------
     public function destroy($id)
     {
+        Sale::where('product_id', $id)->delete();
+        // dd(Sale::where('product_id', $id)->get());
+
+
+        // dd($sales);
+
         $product = Product::findOrFail($id);
         $product->delete();
+
         return redirect()->route('products.index');
     }
 
