@@ -29,3 +29,7 @@ Route::get('sales', 'SaleController@index')->name('sales.index');
 Route::post('sales/create', 'SaleController@create')->name('sales.create');
 
 Route::get('report', 'ProductController@report')->name('products.report');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

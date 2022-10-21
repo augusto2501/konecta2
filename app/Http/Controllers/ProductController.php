@@ -6,15 +6,22 @@ use App\Models\Product;
 use App\Models\Sale;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
     //-------------------------Mostrar todos los productos-------------------------
     public function index()
     {
-        $products = Product::all();
 
-        return view('products.index')->with(['products' => $products]);
+        try {
+
+            $products = Product::all();
+            return view('products.index')->with(['products' => $products]);
+        } catch (\Throwable $th) {
+
+            return view('products.index')->with(['errorDataBase' => $th->getMessage()]);
+        }
     }
 
     //-------------------------Mostrar formulario para crear un producto-----------
@@ -26,6 +33,9 @@ class ProductController extends Controller
     //-------------------------Guardar un producto---------------------------------
     public function store(Request $request)
     {
+        // throw new Exception("Error Processing Request", 1);
+
+
         Product::create([
             'name' => $request->name,
             'reference' => $request->reference,
@@ -40,9 +50,11 @@ class ProductController extends Controller
     //-------------------------Mostrar un producto---------------------------------
     public function show($id)
     {
+
         $product = Product::findOrFail($id);
         return view('products.show')->with(['product' => $product]);
     }
+
 
     //-------------------------Mostrar formulario para editar un producto----------
     public function edit($id)

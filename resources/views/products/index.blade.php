@@ -12,6 +12,12 @@
                 <a class="btn btn-primary" href="{{route('products.create')}}">Crear producto</a>
             </div>
         </div>
+        @if (isset($errorDataBase))
+            <div class="alert alert-danger" role="alert">
+                La base de datos no se encuentra disponible
+            </div>
+        @endif
+
         @empty ($products)
             <div class="alert alert-danger">
                 No hay productos

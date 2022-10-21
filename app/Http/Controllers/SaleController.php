@@ -31,7 +31,6 @@ class SaleController extends Controller
             ]);
             return redirect()->route('products.index');
         } else {
-
             return back()->with('error', 'No se puede realizar la venta, el Stock es insuficiente');
         }
     }
